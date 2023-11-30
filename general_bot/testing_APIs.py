@@ -3,15 +3,11 @@ from decouple import config
 import requests
 
 bot_token = config("token_key")
-
 bot = telebot.TeleBot(bot_token)
 
 greetings = ["hey", "hi", "hello", "how are you"]
 activity = ["activity"]
 joke=["joke","jokes"]
-
-
-
 
 def getActivity():
     URL = "https://www.boredapi.com/api/activity"
@@ -34,9 +30,6 @@ def getJoke():
         return setup + punchline
     else:
         print("Error in the HTTP request")
-
-
-
 
 @bot.message_handler(commands=["start", "help"])
 def welcome(message):
